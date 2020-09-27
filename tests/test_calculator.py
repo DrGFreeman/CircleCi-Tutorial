@@ -2,15 +2,18 @@
 Unit tests for the calculator library
 """
 
-import calculator
+from calculator import operations as op
 
 
 class TestCalculator:
     def test_addition(self):
-        assert 4 == calculator.add(2, 2)
+        assert 4 == op.add(2, 2)
 
     def test_subtraction(self):
-        assert 2 == calculator.subtract(4, 2)
+        assert 2 == op.subtract(4, 2)
 
     def test_multiplication(self):
-        assert 100 == calculator.multiply(10, 10)
+        assert 100 == op.multiply(10, 10)
+
+    def test_division(self):
+        assert 10 == op.divide(100, 10)

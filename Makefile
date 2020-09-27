@@ -25,6 +25,11 @@ pre-commit-install:
 .PHONY: setup
 setup: clean venv update-pip install-dev-req pre-commit-install test
 
+.PHONY: install
+install:
+	@echo "███ Installing the package..."
+	@$(activate) && python -m pip install .
+
 .PHONY: clean
 clean:
 	@echo "███ Cleaning up..."
@@ -45,6 +50,6 @@ lint:
 	)
 
 .PHONY: test
-test:
+test: lint
 	@echo "███ Running unit tests..."
 	@$(activate) && python -m pytest $(TEST_PATH) -v --cov || true
